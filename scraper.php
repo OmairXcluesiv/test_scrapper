@@ -4,7 +4,7 @@ $html = file_get_contents("http://www.ebay.com/sch/i.html?_from=R40&_trksid=p205
 $DOM = new DOMDocument();
 $DOM->loadHTML($html);
 $finder = new DomXPath($DOM);
-$classname = 'lvtitle';
+$classname = 'vip';
 $nodes = $finder->query("//*[contains(@class, '$classname')]");
 foreach ($nodes as $node) {
   echo $node->nodeValue;
