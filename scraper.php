@@ -1,4 +1,14 @@
 <?
+
+$html = file_get_contents("http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.XAmerican+Revolutionary+War&_nkw=American+Revolutionary+War&_sacat=0");
+$DOM = new DOMDocument();
+$DOM->loadHTML($html);
+$finder = new DomXPath($DOM);
+$classname = 'lvtitle';
+$nodes = $finder->query("//*[contains(@class, '$classname')]");
+foreach ($nodes as $node) {
+  echo $node->nodeValue;
+}
 // This is a template for a PHP scraper on morph.io (https://morph.io)
 // including some code snippets below that you should find helpful
 
